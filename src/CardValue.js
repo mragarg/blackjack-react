@@ -15,7 +15,7 @@ export class CardValue extends React.Component {
             <h3>
             {this.props.whoIs} Cards:
             </h3>
-            {this.props.cardSet.map(num => <p> {num} </p>)}
+            {this.props.cardSet.map((num, i) => <p key={i}> {num} </p>)}
             <h3>
                 Total:
             </h3>

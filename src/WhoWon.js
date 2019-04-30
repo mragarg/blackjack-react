@@ -13,7 +13,7 @@ export class WhoWon extends React.Component {
     render() {
         return (
         <div>
-            <p>{this.state.winner}</p>
+            <h2>{this.state.winner}</h2>
         </div>
         )
     }

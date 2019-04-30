@@ -19,7 +19,8 @@ class App extends React.Component {
   
   render() {
     return (
-      <div className="">
+      <div className="text-center">
+      <h1> BLACKJACK </h1>
         <DealCard text="Deal Dealer Cards" functionSet={this._setDealerCard} />
         {this.state.dealerCard.length === 2 ? 
           <CardValue whoIs="Dealer" cardSet={this.state.dealerCard} functionSet={this._setDealerTotal}/> : null
