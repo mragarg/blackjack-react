@@ -4,6 +4,7 @@ import './App.css';
 import DealCard from './DealCard';
 import CardValue from './CardValue';
 import WhoWon from './WhoWon';
+import Hit from './Hit';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class App extends React.Component {
       dealerCard : [],
       playerCard : [],
       dealerTotal: 0,
-      playerTotal: 0
+      playerTotal: 0,
+      hitme : false
     }
   }
   
@@ -29,12 +31,18 @@ class App extends React.Component {
         
 
         <DealCard text="Deal Player Cards" functionSet={this._setPlayerCard}/>
-        {this.state.playerCard.length === 2 ? 
+        {this.state.playerCard.length >= 2 ? 
           <CardValue whoIs="Player" cardSet={this.state.playerCard} functionSet={this._setPlayerTotal}/> : null
         }
         
-        {
-        this.state.playerTotal > 0 ? <WhoWon dealer={this.state.dealerTotal} player={this.state.playerTotal}/> : null
+
+        {this.state.hitme ? 
+          <Hit playerDeck={this.state.playerCard} functionSet={this._setAddPlayerDeck}/> : null
+        }
+
+
+        {this.state.playerTotal > 0 ? 
+          <WhoWon dealer={this.state.dealerTotal} player={this.state.playerTotal}/> : null
         }
 
           
@@ -52,7 +60,8 @@ class App extends React.Component {
 
   _setPlayerCard = (playerCard) => {
     this.setState({
-      playerCard
+      playerCard,
+      hitme: true
     })
   }
 
@@ -65,6 +74,12 @@ class App extends React.Component {
   _setPlayerTotal = (playerTotal) => {
     this.setState({
       playerTotal
+    })
+  }
+
+  _setAddPlayerDeck = (playerCard) => {
+    this.setState({
+      playerCard
     })
   }
 

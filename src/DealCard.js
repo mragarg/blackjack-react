@@ -25,8 +25,11 @@ export class DealCard extends React.Component {
     let rand1 = this.state.cardArray[Math.floor(Math.random() * this.state.cardArray.length)];
     this.setState({
         cardDealt: [...this.state.cardDealt, rand, rand1]
+    }, () => {
+      this.props.functionSet(this.state.cardDealt);
     })
-    this.props.functionSet(this.state.cardDealt);
+
+
     }
 
     
