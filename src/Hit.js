@@ -35,6 +35,7 @@ export class Hit extends Component {
         })
     }
 
+
 }
 
 export default Hit
